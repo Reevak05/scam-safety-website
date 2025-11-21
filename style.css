@@ -195,11 +195,47 @@ footer a:hover {
     animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
+.presentation-description {
+    margin: 20px 0;
+    text-align: center;
+    font-size: clamp(16px, 2vw, 18px);
+}
+
+.slides-link {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-style: normal;
+}
+
 .session-info {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     border-radius: 15px;
     padding: 25px;
     margin: 20px 0;
+}
+
+.session-label {
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.session-date {
+    text-align: center;
+    margin: 0;
+}
+
+.home-link-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.gradient-title {
+    text-decoration: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .home-link {
