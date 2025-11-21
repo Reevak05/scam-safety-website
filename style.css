@@ -241,7 +241,7 @@ footer a:hover {
 .home-link {
     display: inline-block;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white !important;
+    color: white;
     padding: 15px 40px;
     border-radius: 50px;
     text-decoration: none;
@@ -299,7 +299,7 @@ footer a:hover {
 }
 
 /* Accessibility improvements */
-a:focus, button:focus {
+a:focus, button:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
     outline: 3px solid #667eea;
     outline-offset: 2px;
 }
