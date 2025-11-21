@@ -1,68 +1,274 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #eeeeee;
-    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    padding: 10px;
-    max-width: 900px;
+    line-height: 1.6;
+    color: #333;
+    padding: 0;
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero section */
+.hero {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin: 40px auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
     text-align: center;
-    font-size: 90px;
-    font-weight: 600;
-    line-height: 1;
-    margin: 0px 20px;
+    font-size: clamp(48px, 8vw, 90px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-transform: uppercase;
+    letter-spacing: -1px;
 }
 
 h2 {
-    color: black;
+    color: #2d3748;
     text-align: center;
-    font-size: 30px;
-    font-weight: 500;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 30px;
 }
 
+h2.section-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 600;
+    color: #667eea;
+    margin: 40px 0 20px;
+}
+
+/* Quote section */
+.quote {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-left: 4px solid #667eea;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px 0;
+    font-style: italic;
+}
+
+.quote p {
+    margin-bottom: 15px;
+}
+
+.quote sup a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.quote sup a:hover {
+    color: #764ba2;
+}
+
+.intro-text {
+    font-weight: 600;
+    font-size: clamp(18px, 2.5vw, 22px);
+    color: #2d3748;
+    margin-top: 20px;
+    font-style: normal;
+}
+
+/* Action cards container */
 .flex-container {
-    background-color: #6238ff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    color: #f1f1f1;
-    height: auto;
-    border-radius: 30px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-@media (max-width: 900px) {
-    .flex-container {
-        flex-direction: column;
-        border-radius: 20px;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 50px 0;
+    padding: 0;
 }
 
 .point {
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 2%;
-    margin-right: 2%;
-    font-size: 20px;
-    text-align: center;
-    font-weight: 500;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.rectangle {
-    height: 50px;
-    width: 100px;
-    background-color: #555;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 2%;
-    margin-right: 2%;
-    font-size: 20px;
-    text-align: center;
+.point::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.point:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.point:hover::before {
+    opacity: 1;
+}
+
+.point a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(18px, 2vw, 22px);
     font-weight: 500;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer */
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+}
+
+footer p {
+    text-align: center;
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: clamp(14px, 1.5vw, 16px);
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #764ba2;
+}
+
+/* Presentation page specific styles */
+.presentation-info {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.session-info {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+}
+
+.home-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 30px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.home-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 25px;
+        margin: 20px;
+        border-radius: 20px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .flex-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .point {
+        padding: 25px 20px;
+    }
+    
+    footer {
+        margin: 20px;
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 20px;
+    }
+    
+    h1 {
+        margin-bottom: 30px;
+    }
+    
+    .quote {
+        padding: 20px;
+    }
+}
+
+/* Accessibility improvements */
+a:focus, button:focus {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
