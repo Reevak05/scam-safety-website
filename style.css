@@ -1,68 +1,250 @@
-body {
-    background-color: #eeeeee;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    padding: 10px;
-    max-width: 900px;
-    margin: 0 auto;
+/* Reset and Base Variables */
+:root {
+    --bg-color: #f4f7f6;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --primary-blue: #6238ff;
+    --primary-action: #6238ff;
+    --primary-action-hover: #4e2de6;
+    --card-bg: transparent;
+    --card-shadow: none;
+
+    --font-family: 'Poppins', sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 18px;
+    /* Larger base font size for accessibility */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Typography Hierarchy */
 h1 {
     text-align: center;
-    font-size: 90px;
-    font-weight: 600;
-    line-height: 1;
-    margin: 0px 20px;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    /* Responsive typography */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    color: var(--text-primary);
     text-transform: uppercase;
+    letter-spacing: -1px;
 }
 
-h2 {
-    color: black;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
+/* Links */
+a {
+    color: var(--primary-blue);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
 }
 
-.flex-container {
-    background-color: #6238ff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    color: #f1f1f1;
-    height: auto;
-    border-radius: 30px;
+a:hover {
+    color: var(--primary-action-hover);
+}
+
+a.clean-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.clean-link:hover {
+    color: var(--primary-action);
+}
+
+/* Content Container Card */
+.content-card {
+    background-color: transparent;
+    padding: 40px 50px;
     max-width: 900px;
-    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
-@media (max-width: 900px) {
-    .flex-container {
-        flex-direction: column;
-        border-radius: 20px;
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    .content-card {
+        padding: 30px 20px;
     }
 }
 
-.point {
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 2%;
-    margin-right: 2%;
-    font-size: 20px;
-    text-align: center;
+/* Specific elements from old styles mapped intelligently */
+.stat-quote {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 500;
+    color: var(--text-primary);
+    margin: 40px 0;
+    border-left: 4px solid var(--primary-action);
+    padding-left: 20px;
+    text-align: left;
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
 }
 
-.rectangle {
-    height: 50px;
-    width: 100px;
-    background-color: #555;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 2%;
-    margin-right: 2%;
-    font-size: 20px;
-    text-align: center;
+.intro-text {
+    font-size: 1.125rem;
     font-weight: 500;
+    color: var(--text-secondary);
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    max-width: 100%;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+    }
+}
+
+/* Primary Button */
+.primary-button {
+    background-color: var(--primary-action);
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 50px;
+    /* Pill shape for obvious button affordance */
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(98, 56, 255, 0.2);
+    display: inline-block;
+    width: 100%;
+    max-width: max-content;
+}
+
+@media (max-width: 768px) {
+    .primary-button {
+        max-width: 100%;
+        /* Full width on mobile */
+        width: 100%;
+    }
+}
+
+.primary-button:hover,
+.primary-button:focus {
+    background-color: var(--primary-action-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(98, 56, 255, 0.3);
+    color: #ffffff;
+    outline: none;
+}
+
+/* Focus ring for accessibility */
+.primary-button:focus-visible {
+    box-shadow: 0 0 0 4px rgba(98, 56, 255, 0.4);
+}
+
+.primary-button i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* Presentation List specific styles */
+.presentation-info {
+    font-size: 1.125rem;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.sessions-container {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.sessions-title {
+    color: var(--primary-action);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.session-block {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.session-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.session-label {
+    font-weight: 700;
+    color: var(--primary-action);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.session-time {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/* Back Link Styling */
+.home-link {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-top: 30px;
+}
+
+.home-link i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+footer p {
+    margin-bottom: 10px;
 }
